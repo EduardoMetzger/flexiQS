@@ -20,13 +20,16 @@ With this extension you can:
  You need to create a table on your script containing three dimensions:
  <ul>
  <li>Order</li>
-  <li>This will be used to sort the buttons on your navigation bar. You don't need to use the same order of your sheets. You can just use RowNo() on that dimension, if you prefer. </li>
+  <ul><li>This will be used to sort the buttons on your navigation bar. You don't need to use the same order of your sheets. You can just use RowNo() on that dimension, if you prefer. </li></ul>
  <li>Sheet Title</li>
-  <li>The name that will appears on the navigation bar (don't need to be the sheet name)</li>
+
+  <ul><li>The name that will appears on the navigation bar (don't need to be the sheet name)</li></ul>
  <li>Sheet ID</li>
-  <li>You can find this information on the URL, like indicate on image:</li>
+  <ul><li>You can find this information on the URL, like indicate on image:</li></ul>
 </ul>
-![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
+![id](https://user-images.githubusercontent.com/130483457/232044167-815a8ebc-1764-4099-9847-674d04f78528.png)
+
+
  
  The table will be something like that:
     
