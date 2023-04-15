@@ -32,68 +32,8 @@ define( ["qlik", "jquery", "text!./style.css"], function ( qlik, $, cssContent )
 				},
 				flexiQS: {
 					component: "expandable-items",
-					label: "FlexiQS Configuration",
+					label: "flexiQS Configuration",
 					items:{
-						sheetStyle:{
-							type: "items",
-							label: "Sheet Style",
-							items:{
-								sheet_title_enable:{
-									type:"boolean",
-									component:"switch",
-									label:"Sheet Title",
-									ref:"sheet_title_enable",
-									options:[{
-										value:true
-									},{
-										value:false
-									}],
-									defaultValue: true
-								}
-							}
-						},
-						document_navigation:{
-							type: "items",
-							label: "Navigation Bar",
-							items:{
-								document_navigation_enable: {
-									type: "boolean",
-									ref: "document_navigation_enable",
-									label: "Enable",
-									defaultValue: false
-								},
-								bar_color: {
-									type: "object",
-									ref: "bar_color",
-									label: "Bar Color",
-									component: "color-picker",
-									defaultValue:{
-										color: "#155599"
-									},
-									show: function(param){
-										return param.document_navigation_enable;
-									}
-								},
-								bar_top_config: {
-									type: "string",
-									label: "Bar Top %",
-									ref: "bar_top_config",
-									defaultValue: 0,
-									show: function(param){
-										return param.document_navigation_enable;
-									}
-								},
-								bar_disclaimer:{
-									label:"To use this function, you have to create a table containing three dimensions: 1) Order (you can use numerals or letters, this will be used to sort the items), 2) Sheet title and 3) Sheet ID. Add that three dimensions on the dimensions section to see the navigation bar. For more info and exemples, check:",
-									component:"text"									
-								},
-								bar_disclaimer_link:{
-									label:"FlexiQS GitHub Page",
-									component:"link",
-									url:"https://www.github.com/EduardoMetzger/FlexiQS"
-								}
-							}
-						},
 						interface:{
 							type: "items",
 							label: "Qlik Interface",
@@ -204,6 +144,18 @@ define( ["qlik", "jquery", "text!./style.css"], function ( qlik, $, cssContent )
 									}],
 									defaultValue: true
 								},
+								selections_bar_advisor:{
+									type:"boolean",
+									component: "switch",
+									label:"Insight Advisor",
+									ref: "selections_bar_advisor",
+									options:[{
+										value:true
+									}, {
+										value:false
+									}],
+									defaultValue: true
+								},								
 								selections_bar_smartsearch:{
 									type:"boolean",
 									component: "switch",
@@ -313,6 +265,183 @@ define( ["qlik", "jquery", "text!./style.css"], function ( qlik, $, cssContent )
 									defaultValue: true
 								}
 							}
+						},
+						document_navigation:{
+							type: "items",
+							label: "Navigation Bar",
+							items:{
+								document_navigation_enable: {
+									type: "boolean",
+									ref: "document_navigation_enable",
+									label: "Enable",
+									defaultValue: false
+								},
+								bar_nav_enable: {
+									type: "boolean",
+									component: "switch",
+									ref: "bar_nav_enable",
+									label: "Display bar",
+									options:[{
+										value:true
+									}, {
+										value:false
+									}],
+									defaultValue: true,
+									show: function(param){
+										return param.document_navigation_enable;
+									}
+								},
+								bar_color: {
+									type: "object",
+									ref: "bar_color",
+									label: "Bar color",
+									component: "color-picker",
+									defaultValue:{
+										color: "#155599"
+									},
+									show: function(param){
+										return param.document_navigation_enable;
+									}
+								},
+								items_color: {
+									type: "object",
+									ref: "items_color",
+									label: "Items Color",
+									component: "color-picker",
+									defaultValue:{
+										color: "#fafafa"
+									},
+									show: function(param){
+										return param.document_navigation_enable;
+									}
+								},
+								items_text_color: {
+									type: "object",
+									ref: "items_text_color",
+									label: "Text Color",
+									component: "color-picker",
+									defaultValue:{
+										color: "#323232"
+									},
+									show: function(param){
+										return param.document_navigation_enable;
+									}
+								},
+								selected_item_color: {
+									type: "object",
+									ref: "selected_item_color",
+									label: "Selected Item",
+									component: "color-picker",
+									defaultValue:{
+										color: "#787878"
+									},
+									show: function(param){
+										return param.document_navigation_enable;
+									}
+								},
+								selected_item_text_color: {
+									type: "object",
+									ref: "selected_item_text_color",
+									label: "Selected Item Text",
+									component: "color-picker",
+									defaultValue:{
+										color: "#fafafa"
+									},
+									show: function(param){
+										return param.document_navigation_enable;
+									}
+								},								
+								hover_item_color: {
+									type: "object",
+									ref: "hover_item_color",
+									label: "Hover background",
+									component: "color-picker",
+									defaultValue:{
+										color: "#8c8c8c"
+									},
+									show: function(param){
+										return param.document_navigation_enable;
+									}
+								},
+								hover_item_text_color: {
+									type: "object",
+									ref: "hover_item_text_color",
+									label: "Hover Text",
+									component: "color-picker",
+									defaultValue:{
+										color: "#ffffff"
+									},
+									show: function(param){
+										return param.document_navigation_enable;
+									}
+								},
+								items_position_bar: {
+									type: "string",
+									ref: "items_position_bar",
+									label: "Items position",
+									component: "dropdown",
+									options:[{
+										value:"left",
+										label:"Left"
+									},{
+										value:"center",
+										label:"Center"
+									}, {
+										value: "right",
+										label: "right"
+									}],
+									defaultValue:"center",
+									show: function(param){
+										return param.document_navigation_enable;
+									}
+								},
+								bar_top_config: {
+									type: "string",
+									label: "Bar Top %",
+									ref: "bar_top_config",
+									defaultValue: 0,
+									show: function(param){
+										return param.document_navigation_enable;
+									}
+								},
+								bar_disclaimer:{
+									label:"To use this function, you have to create a table containing three dimensions: 1) Order (you can use numerals or letters, this will be used to sort the items), 2) Sheet title and 3) Sheet ID. Add that three dimensions on the dimensions section to see the navigation bar. For more info and exemples, check:",
+									component:"text"									
+								},
+								bar_disclaimer_link:{
+									label:"flexiQS GitHub Page",
+									component:"link",
+									url:"https://github.com/EduardoMetzger/flexiQS"
+								}
+							}
+						},
+						sheetStyle:{
+							type: "items",
+							label: "Sheet Style",
+							items:{
+								sheet_title_enable:{
+									type:"boolean",
+									component:"switch",
+									label:"Sheet Title",
+									ref:"sheet_title_enable",
+									options:[{
+										value:true
+									},{
+										value:false
+									}],
+									defaultValue: true
+								}
+							}
+						},
+						about:{
+							type: "items",
+							label: "About",
+							items: {
+								about_disclaimer:{
+								label:"flexiQS is a OpenSource project, created by Eduardo Metzger. If you share or modific, please give the credits. Let's create a big and strong comunity togheter. Contact me on github.com/EduardoMetzger",
+								component:"text"
+								}
+							}
 						}
 					}
 				}
@@ -320,29 +449,40 @@ define( ["qlik", "jquery", "text!./style.css"], function ( qlik, $, cssContent )
 		},		
 		
 		paint: function ( $element, layout ) {
-
+		
 			var bar_top = layout.bar_top_config+'%',
-				bar_color = layout.bar_color.color,
 				hc = layout.qHyperCube,
 				tipo_menu = 'menu_compacto_Horizontal',
+				alinhamento_menu = layout.items_position_bar,
 				novo_html = '';
+			if (layout.bar_nav_enable){
+				var bar_color = layout.bar_color.color
+			} else {
+				var bar_color = 'transparent'
+			}
 			
+
 			//sheet style
 			if(layout.sheet_title_enable){
 				$( ".sheet-title-container" ).removeClass("_hide");
 			} else {
 				$( ".sheet-title-container" ).addClass("_hide");
 			}
-
+			
+			
 			//navigation bar
 			if(layout.document_navigation_enable) {
 				novo_html +="<nav id='"+ tipo_menu +"' class='main-menu' style=top:" + bar_top + ";background-color:" + bar_color + ";>";
-				novo_html +="<ul>";
+				if(alinhamento_menu == 'center'){
+					novo_html +="<ul style=position:relative;margin:auto;background-color:" + layout.items_color.color + ";color:" + layout.items_text_color.color + ";>";
+				} else {
+					novo_html +="<ul style=position:absolute;" + alinhamento_menu + ":1rem;background-color:" + layout.items_color.color + ";color:" + layout.items_text_color.color + ";>";
+				}
 				var current_url = window.location.href;
 				var current_sheet = current_url.substr(current_url.search("sheet")+6,current_url.search("state")-1-current_url.search("sheet")-6);
 				for (var c = 0; c < hc.qDataPages[0].qMatrix.length; c++) {
 					if (current_sheet === hc.qDataPages[0].qMatrix[c][2].qText) {
-						var ind_selecao = "selecionado"
+						var ind_selecao = "selecionado" 
 					}else{
 						var ind_selecao = ""
 					}
@@ -367,6 +507,8 @@ define( ["qlik", "jquery", "text!./style.css"], function ( qlik, $, cssContent )
 				$( "#menu_compacto_Horizontal" ).css("display","none");
 			}
 			
+			
+						
 			//document bar
 			if(layout.document_bar_enable){
 				var ind = $(".qs-toolbar").css("display");
@@ -432,9 +574,11 @@ define( ["qlik", "jquery", "text!./style.css"], function ( qlik, $, cssContent )
 			$('.css-1lazv8h').css("color",layout.selections_bar_selections_text.color) //edit button
 			$('#note_svg__a').find(':first-child').attr("fill",layout.selections_bar_text_color.color) //note
 			$('#note_svg__a').find(':nth-child(2)').attr("fill",layout.selections_bar_text_color.color) //note
+			//$('#Brand-and-logos-/Qlik-Logo-Copy').find(':nth-child(1)').attr("fill",layout.selections_bar_text_color.color) //logo qlik
 			$('[data-testid="selection-overflow"]').css("background-color",layout.selections_bar_selections_background.color) //more selections
 			$('.css-1h0zqjf').css("background-color",layout.selections_bar_selections_text.color) //more selections
 			$('.css-1h0zqjf').css("color",layout.selections_bar_selections_background.color) //more selections
+			$('.css-v6hao6').find(':nth-child(2)').css("color",layout.selections_bar_text_color.color) //Pergunte ao insighter
 
 			//Alguns itens não geram atualização do document, portanto o js não altera a cor ao filtrar, por exemplo. Este HTML serve para corrigir esta situação.
 			//Foi necessário manter a estrutura acima pois ao trocar a cor e sair do modo de edição, o HTML não é reinserido. Um cobre a falha do outro
@@ -448,6 +592,25 @@ define( ["qlik", "jquery", "text!./style.css"], function ( qlik, $, cssContent )
 				style_html += ' [data-testid="selection-overflow"]background-color: ' + layout.selections_bar_selections_background.color + ' !important;} \n'
 				style_html += ' .css-1gd8cdl{background-color: ' + layout.selections_bar_background.color + ' !important;} \n'
 				style_html += ' .qvt-selections{background-color: ' + layout.selections_bar_background.color + ' !important;} \n'
+				style_html += ' #nav-text-item-{color: ' + layout.items_text_color.color + ' !important;} \n'
+				style_html += ' #nav-text-item-selecionado{color: ' + layout.selected_item_text_color.color + ' !important; background-color: ' + layout.selected_item_color.color + ' !important;} \n'
+				style_html += ' #nav-text-item-:hover{color: ' + layout.hover_item_text_color.color + ' !important; background-color: ' + layout.hover_item_color.color + ' !important;} \n'
+				style_html += ' .css-jge6qb{color: ' + layout.document_bar_text_color.color + ' !important; background-color: ' + layout.document_bar_background.color + ' !important;} \n' //Pergunte ao insighter
+				style_html += ' .css-99zvyh{border-radius:12px;border: 1px solid ' + layout.document_bar_border_color.color + ' !important;} \n'//Pergunte ao insighter
+				style_html += ' .css-x5rwn{color: ' + layout.document_bar_text_color.color + ' !important;} \n' //Pergunte ao insighter
+				style_html += ' #menu-button-tab-nav-data{border:1px solid ' + layout.document_bar_border_color.color + ';background-color: ' + layout.document_bar_background.color + ' !important;} \n'//botão opções editor de script/modelo de dados
+				style_html += ' #Fill-1{fill: ' + layout.document_bar_text_color.color + ' !important;} \n'//logo qlik
+				style_html += ' #Fill-5{fill: ' + layout.document_bar_text_color.color + ' !important;} \n'//logo qlik
+				style_html += ' [data-testid="sub-toolbar-explore-button"]{border:1px solid ' + layout.document_bar_border_color.color + ' !important;} \n'//Advisor
+				
+				if($('.qv-mode-edit').length){
+					var a
+				} else {
+					style_html += ' [tid="qv-object-flexiQS"]{display:none !important;} \n'
+				}
+				
+
+								
 
 			$('#flexiQS-Custom').remove();
 			$('<style id="flexiQS-Custom"></style>').html(style_html).prependTo('head');
@@ -456,6 +619,12 @@ define( ["qlik", "jquery", "text!./style.css"], function ( qlik, $, cssContent )
 				$(".css-zzo9ay").removeClass("_hide");
 			} else {
 				$(".css-zzo9ay").addClass("_hide");
+			}
+
+			if(layout.selections_bar_advisor){
+				$(".css-1318dac").removeClass("_hide");
+			} else {
+				$(".css-1318dac").addClass("_hide");
 			}
 
 			if(layout.selections_bar_smartsearch){

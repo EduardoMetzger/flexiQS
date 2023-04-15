@@ -14,14 +14,16 @@
 	height: 4.5%; /*tamanho da barra*/
 	z-index: 2;
 	display:flex;
+	align-items: center;
 }
 
 #menu_compacto_Horizontal.main-menu>ul {
 	display: flex;
-	position:relative;
-	margin:auto;
+	/*position:absolute;
+	/*position:relative;
+	margin:auto;*/
 	height: 1.2vw;
-	background-color: rgb(250,250,250);
+	/*background-color: rgb(250,250,250);*/
 	border-radius:5px;	
 	padding-left:3px;
 	padding-right:3px;
@@ -41,13 +43,13 @@
 
 #menu_compacto_Horizontal.main-menu .nav-text {
 	font-size: 0.68vw;
-	color:rgb(50 50 50);
-	background-color: rgb(250,250,250);
+	/*color:rgb(50 50 50);
+	background-color: rgb(250,250,250);*/
 	-webkit-transform: translateZ(0) scale(1, 1);
 	-webkit-transition: all .1s linear;
 	transition: all .1s linear;
 	border-style: solid;
-	border-color: #4F4E4E;
+	/*border-color: #4F4E4E;*/
 	border-radius: 4px;
 	border-width: 0px;
 	padding-left:8px;
@@ -76,7 +78,7 @@
 }
 
 #menu_compacto_Horizontal.main-menu li>a{
-	color: #fff;
+	/*color: #fff;*/
 	white-space: nowrap;
 	padding-left: 1px;
 	padding-right: 1px;
@@ -84,38 +86,38 @@
 }
 
 #menu_compacto_Horizontal.dropdown-menu>li>a{
-	color: #fff;
+	/*color: #fff;*/
 	display: block; 
 	white-space: nowrap;
 }
 
 #menu_compacto_Horizontal .dropdown-menu>a{
-	color: #fff;
+	/*color: #fff;*/
 	display: block;
 	white-space: nowrap;
 }
 
 #menu_compacto_Horizontal .no-touch .dashboard-page nav.dashboard-menu ul li:a {
-	color: #fff;
+	/*color: #fff;*/
 	display: block;
 	white-space: nowrap;
 }
 
 #menu_compacto_Horizontal .dashboard-page nav.dashboard-menu ul li a {
-	color: #fff;
+	/*color: #fff;*/
 	display: block;
 	white-space: nowrap;
 }
 
 [id="nav-text-item-selecionado"] {
-	background-color: rgb(120,120,120) !important;
+	/*background-color: rgb(120,120,120) !important;
 	border: 1px solid rgb(120,120,120) !important;
-	color: rgb(255, 255, 255) !important;
+	color: rgb(255, 255, 255) !important;*/
 	font-weight: 800;
 } 
 
 [id="nav-text-item-selecionado"]:hover {
-	background-color: rgb(140,140,140) !important;
-	color: rgb(255, 255, 255) !important;
+/*	background-color: rgb(140,140,140) !important;
+	color: rgb(255, 255, 255) !important; */
 	font-weight: 800;
 } 
