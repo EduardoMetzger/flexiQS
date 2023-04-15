@@ -45,4 +45,10 @@ With this extension you can:
  4, Clients, 4ba2c08a-0df5-4700-bb2f-7ecc9b07e365 <br>
  5, Credit Card, 7ab75f00-fef4-44f2-aa83-9b9c3f1cf8f0 <br>
  ]; <br>
+ 
+ 
+
+https://user-images.githubusercontent.com/130483457/232190001-6f3b16cf-70fd-412d-97b9-8c7600d1819c.mp4
+
+
 
